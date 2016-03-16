@@ -1,0 +1,1 @@
+import subtract from '../src/partB.es6';
