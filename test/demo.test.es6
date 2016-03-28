@@ -1,4 +1,4 @@
-import a from '../src/demo.es6';
+import a from 'demo';
 
 describe('demo', function() {
   it('should be awesome', function() {
@@ -9,5 +9,8 @@ describe('demo', function() {
   })
   it('should toUpperCase()', ()=> {
     expect(a.shout()).toBe('JOHNNY')
+  })
+  it('should sqaure a number', ()=> {
+    expect(a.sqaure(2).toBe(4))
   })
 })

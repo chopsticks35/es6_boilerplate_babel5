@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
 	frameworks: ['jasmine'],
 	reporters: ['progress', 'coverage'],
@@ -17,12 +19,13 @@ module.exports = {
 	files: [
 		'./node_modules/phantomjs-polyfill/bind-polyfill.js',
 		'./node_modules/babel-core/browser-polyfill.js',
-		'./test/test.js'
+		'./test/test.es6'
 	],
 	preprocessors: {
-		'./test/test.js': ['webpack', 'sourcemap']
+		'./test/test.es6': ['webpack', 'sourcemap']
 	},
 	webpack: {
+		context: path.join(__dirname, 'src'),
 		devtool: 'inline-source-map',
 		module: {
 			preLoaders: [
@@ -33,9 +36,15 @@ module.exports = {
 				}
 			],
 			loaders: [
-        { test: /\.(scss|css)$/, loader: 'null' },
-				{ test: /\.es6/, loader: 'babel?compact=true' }
+      	{ test: /\.coffee$/, loaders: ['coffee'] },
+				{ test: /\.es6$/, loaders: ['babel?compact=true'] }
 			]
+		},
+		resolve: {
+		  root: [
+		    path.join(__dirname, 'src')
+		  ],
+		  extensions: ['', '.coffee', '.es6', '.js']
 		}
 	},
 	webpackServer: {

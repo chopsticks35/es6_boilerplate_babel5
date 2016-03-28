@@ -12,6 +12,7 @@
   "devDependencies": {
     "babel": "~5",
     "babel-loader": "~5",
+    "coffee-loader": "^0.7.2",
     "isparta": "~2",
     "isparta-instrumenter-loader": "~0.2",
     "istanbul": "~0.3",
